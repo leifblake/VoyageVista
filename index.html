@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore World Destinations</title>
+    <link href="css/index.css" rel="stylesheet" media="screen"/>
+    <link href="css/nav.css" rel="stylesheet" media="screen"/>
+    <link href="css/footer.css" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav id="main-nav">
+    <div id="brand">
+        <a href="index.html">
+            <img src="images/logo.jpg" alt="VoyageVista Logo" class="logo">
+            <span class="brand-name">VoyageVista</span>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="paris.html">Paris</a></li>
+        <li><a href="tokyo.html">Tokyo</a></li>
+        <li><a href="newyork.html">New York</a></li>
+    </ul>
+</nav>
+
+ <header>
+   <h1>Welcome to VoyageVista</h1>
+   <p class="intro">Your gateway to the world’s most breathtaking cities. Explore unique travel experiences curated just for you, from the elegance of Paris to the vibrant energy of Tokyo and the iconic sights of New York City. Start your adventure with VoyageVista!</p>
+</header>
+
+<div id="page">
+
+    <!-- Slider Section -->
+    <div id="main-content">
+        <section id="slider">
+            <div class="image_wrapper">
+                <img id="pic1" src="images/slider/paris.jpg" alt="Paris" />
+                <img id="pic2" src="images/slider/paris2.jpg" alt="Paris" />
+                <img id="pic3" src="images/slider/tokyo.jpg" alt="Tokyo" />
+                <img id="pic4" src="images/slider/tokyo2.jpg" alt="Tokyo" />
+                <img id="pic5" src="images/slider/newyork.jpg" alt="New York" />
+                <img id="pic6" src="images/slider/newyork2.jpeg" alt="New York" />
+            </div>
+
+            <div class="next"></div>
+            <div class="prev"></div>
+
+            <ul class="nav">
+                <li id="nav1" class="selected"><a class="thumbnav" href="#pic1" rel="images/slider/thumbs/paris.jpg">Paris</a></li>
+                <li id="nav2"><a class="thumbnav" href="#pic2" rel="images/slider/thumbs/paris2.jpg">Paris</a></li>
+                <li id="nav3"><a class="thumbnav" href="#pic3" rel="images/slider/thumbs/tokyo.jpg">Tokyo</a></li>
+                <li id="nav4"><a class="thumbnav" href="#pic4" rel="images/slider/thumbs/tokyo2.jpg">Tokyo</a></li>
+                <li id="nav5"><a class="thumbnav" href="#pic5" rel="images/slider/thumbs/newyork.jpg">New York</a></li>
+                <li id="nav6"><a class="thumbnav" href="#pic6" rel="images/slider/thumbs/newyork2.jpg">New York</a></li>
+                <li class="preview">
+                    <div class="preview_wrapper"></div>
+                    <span></span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Featured Destinations Section -->
+        <section id="featured">
+            <h2>Featured Destinations</h2>
+            <div class="destinations">
+                <a href="paris.html" class="destination">
+                    <img src="images/featured/paris_featured.jpg" alt="Paris">
+                    <h3>Paris</h3>
+                    <p>Experience the romantic charm and historic landmarks of Paris, including the Eiffel Tower, Louvre Museum, and Montmartre.</p>
+                </a>
+                <a href="tokyo.html" class="destination">
+                    <img src="images/featured/tokyo_feature.jfif" alt="Tokyo">
+                    <h3>Tokyo</h3>
+                    <p>Dive into the bustling streets, serene temples, and futuristic landscapes of Tokyo, a city of endless exploration.</p>
+                </a>
+                <a href="newyork.html" class="destination">
+                    <img src="images/featured/newyork_feature.jpg" alt="New York">
+                    <h3>New York</h3>
+                    <p>Explore the vibrant culture, world-famous landmarks, and hidden gems of the city that never sleeps, New York.</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="site-footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About VoyageVista</h3>
+                <p>Your personalized travel experience. Discover iconic destinations around the world with carefully curated guides and recommendations. Created for CGT353. </p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="paris.html">Paris</a></li>
+                    <li><a href="tokyo.html">Tokyo</a></li>
+                    <li><a href="newyork.html">New York</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: support@voyagevista.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VoyageVista. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</div>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    let counter = 1;
+    const totalImages = 6;
+
+    // Initialize by positioning images for sliding
+    $(".image_wrapper img").each(function(index) {
+        $(this).css("left", (index * 650) + "px");
+    });
+
+    // Display thumbnail preview on hover
+    $(".thumbnav").hover(function() {
+        const rel = $(this).attr("rel");
+        $("div.preview_wrapper").css("background", `url(${rel}) no-repeat center`);
+        $("li.preview").css("display", "block").css("left", $(this).parent().position().left + "px");
+    }, function() {
+        $("li.preview").css("display", "none");
+    });
+
+    // Thumbnail click to navigate to specific image
+    $(".thumbnav").click(function(event) {
+        event.preventDefault();
+        const targetIndex = $(this).parent().index();
+        const moveAmount = (targetIndex - (counter - 1)) * 650;
+        const sign = moveAmount < 0 ? "+=" : "-=";
+
+        // Animate images for sliding
+        $(".image_wrapper img").animate({
+            left: sign + Math.abs(moveAmount)
+        }, 250);
+
+        // Update selected navigation and counter
+        $(".nav li").removeClass("selected");
+        $(this).parent().addClass("selected");
+        counter = targetIndex + 1;
+    });
+
+    // Next button functionality
+    $(".next").click(function() {
+        if (counter < totalImages) {
+            $(".image_wrapper img").animate({ left: "-=650" }, 250);
+            counter++;
+        } else {
+            $(".image_wrapper img").animate({ left: "+=" + (650 * (totalImages - 1)) }, 250);
+            counter = 1;
+        }
+        updateNav();
+    });
+
+    // Previous button functionality
+    $(".prev").click(function() {
+        if (counter > 1) {
+            $(".image_wrapper img").animate({ left: "+=650" }, 250);
+            counter--;
+        } else {
+            $(".image_wrapper img").animate({ left: "-=" + (650 * (totalImages - 1)) }, 250);
+            counter = totalImages;
+        }
+        updateNav();
+    });
+
+    // Update navigation dots
+    function updateNav() {
+        $(".nav li").removeClass("selected");
+        $("#nav" + counter).addClass("selected");
+    }
+});
+</script>
+
+
+</body>
+</html>

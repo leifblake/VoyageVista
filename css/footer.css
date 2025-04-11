@@ -1,0 +1,81 @@
+/* Footer Styling */
+#site-footer {
+    background-color: #333;
+    color: #f0f0f0;
+    padding: 20px 0;
+}
+
+@font-face {
+    font-family: 'Futura';
+    src: url('fonts/Futura.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('fonts/Helvetica.ttf') format('truetype');
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 15px;
+}
+
+/* Style for Footer Section Headings */
+.footer-section h3 {
+    font-family: 'Futura', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #555;
+    padding-bottom: 5px;
+}
+
+/* Style for Other Footer Text */
+.footer-section p, .footer-section ul, .footer-bottom p {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #d0d0d0;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #a8d1ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 0.8em;
+    color: #999999;
+}
+
+.footer-bottom p {
+    margin: 0;
+}

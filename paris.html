@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Explore Paris</title>
+    <link href="css/paris.css" rel="stylesheet" media="screen"/>
+    <link href="css/nav.css" rel="stylesheet" media="screen"/> <!-- Link to nav.css for navigation styling -->
+	<link href="css/footer.css" rel="stylesheet" media="screen"/>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav id="main-nav">
+    <div id="brand">
+        <a href="index.html">
+            <img src="images/logo.jpg" alt="VoyageVista Logo" class="logo"> <!-- Placeholder for logo image -->
+            <span class="brand-name">VoyageVista</span>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="paris.html">Paris</a></li>
+        <li><a href="tokyo.html">Tokyo</a></li>
+        <li><a href="newyork.html">New York</a></li>
+    </ul>
+</nav>
+
+<div id="page">
+    <header>
+        <h1>Explore Paris:</h1>
+    </header>
+
+    <!-- Ad Element -->
+    <div id="ad">
+        <p>Book now and enter code "PARIS10" to get 10 percent off!</p>
+        <a href="#" id="closeAd">Close</a>
+    </div>
+
+    <!-- Fixed Sidebar -->
+    <div id="contact">
+        <span>Contact Me</span>
+    </div>
+
+    <div id="contactForm">
+        <div id="contactClose">X</div>
+        <h2>Have any questions?</h2>
+        <p>Contact me here:<br>Leif Blake<br>Email: blake50@purdue.edu<br>Purdue University<br>West Lafayette, IN 47906</p>
+    </div>
+	
+	<div id="introBanner">
+		<h2>Wondering what Paris has to offer?</h2><br><p>Check out our certified VoyageVista favorites!</p>
+	</div>
+
+    <!-- Hover Gallery -->
+    <div id="wrapper">
+        <div class="hover-image" style="background-image: url('images/paris/landmark1.jpg');">
+            <p class="image-caption">Eiffel Tower</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark2.jpg');">
+            <p class="image-caption">Louvre Museum</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark3.jpg');">
+            <p class="image-caption">Notre-Dame Cathedral</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark4.jpg');">
+            <p class="image-caption">Arc de Triomphe</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark5.jpeg');">
+            <p class="image-caption">Montmartre</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark6.jpg');">
+            <p class="image-caption">Sainte-Chapelle</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark7.jpg');">
+            <p class="image-caption">Luxembourg Gardens</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark8.jpg');">
+            <p class="image-caption">Seine River Cruise</p>
+        </div>
+        <div class="hover-image" style="background-image: url('images/paris/landmark9.jpg');">
+            <p class="image-caption">Palace of Versailles</p>
+        </div>
+    </div>
+	
+	<div id="rateBanner">
+    	<h2>Curious? Check out our rates!</h2>
+    	<a href="book.html" class="book-now-button">Book Now</a>
+	</div>
+
+	  <!-- Footer Section -->
+    <footer id="site-footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>About VoyageVista</h3>
+                <p>Your personalized travel experience. Discover iconic destinations around the world with carefully curated guides and recommendations. Created for CGT353.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="paris.html">Paris</a></li>
+                    <li><a href="tokyo.html">Tokyo</a></li>
+                    <li><a href="newyork.html">New York</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: support@voyagevista.com</p>
+                <p>Phone: +1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VoyageVista. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</div>
+	
+
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Show ad on page load
+        $("#ad").animate({ top: "+=150px" }, 1000);
+
+        // Close ad functionality
+        $("#closeAd").click(function(event) {
+            event.preventDefault();
+            $("#ad").fadeOut();
+        });
+
+        // Toggle contact form
+        var isShowing = false;
+        $("#contact").click(function() {
+            if (isShowing) {
+                $("#contactForm").animate({ left: "-=400" }, 700);
+            } else {
+                $("#contactForm").animate({ left: "+=400" }, 700);
+            }
+            isShowing = !isShowing;
+        });
+
+        // Close contact form with X button
+        $("#contactClose").click(function() {
+            $("#contactForm").animate({ left: "-=400" }, 700);
+            isShowing = false;
+        });
+    });
+</script>
+
+</body>
+</html>
